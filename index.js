@@ -2,8 +2,11 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import path from "path";
+import app from "./api/app.js";
 
 const app = express();
+
+app.set("view engine", "ejs");
 
 app.use(cors());
 app.use(helmet());
