@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../public/css/titleColumnStyle.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+  </head>
+  <body style="background-color:white; color:black;">
+    <h1>Articles</h1>
+    <h2>Submit Article</h2>
+    <form method="POST">
+      <br />
+      <label for="title">title</label>
+      <input type="text" name="title" id="title" />
+      <br />
+      <label for="rating">rating</label>
+      <input type="Number" name="rating" id="rating" />
+      <br />
+      <label for="review">review</label>
+      <input type="text" name="review" id="review" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <hr />
+
+    <% for(let i = 0; i < reviews.length; i++) { %>
+    <div class="review">
+      <h3><%= reviews[i].title %></h3>
+      <p><%= reviews[i].rating %></p>
+      <p><%= reviews[i].id %></p>
+      <p><%= reviews[i].review %></p>
+    </div>
+    <% } %>
+  </body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../public/css/homePageStyle.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/public/css/homePageStyle.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+</style>
+</head>
+<body>
+<div id="body">
+  <div id="sidebar">
+    <h1 
+    id="logo">Thrift-Us.</h1>
+  </div>
+  
+  <div id="titles">
+    <div style="display:flex-inline; padding-left:1.5vw;">
+    <div style="
+    height:10vh;
+    display: flex;
+    align-items: center;"
+    
+    >
+    <h1 style="color:#a8adb9; font-family: 'Roboto', sans-serif; font-weight:600; font-size:2vw;">
+      Reviews
+    </h1>
+  </div>
+<div style="display:flex; width:20vw; transform:translateX(-1.5vw); justify-content: center;">
+  <form action="/search" method="GET"> 
+    <input type="text" name="search" placeholder="Search" id="searchBar"/></form>
+</div>
+<div id = titlescroll>
+<button id = "block">
+  <p1>
+    hello test
+  </p1>
+</button>
+<button id = "block">
+  <p1>
+    hello test
+  </p1>
+</button>
+<button id = "block">
+  <p1>
+    hello test
+  </p1>
+</button>
+<button id = "block">
+  <p1>
+    hello test
+  </p1>
+</button>
+<button id = "block">
+<p1>
+  hello test
+</p1>
+</button>
+<button id = "block">
+<p1>
+  hello test
+</p1>
+</button>
+<button id = "block">
+<p1>
+  hello test
+</p1>
+</button>
+<button id = "block">
+<p1>
+  hello test
+</p1>
+</button>
+<button id = "block">
+<p1>
+  hello test
+</p1>
+</button>
+<button id = "block">
+<p1>
+  hello test
+</p1>
+</button>
+</div>
+
+</div>
+<div id = content>
+test
+</div>
+</body>
+</html> -->
