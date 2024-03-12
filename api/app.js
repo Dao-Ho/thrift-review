@@ -10,38 +10,57 @@ const app = express();
 
 app.set("view engine", "ejs");
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/search", async (req, res) => {
+  try {
+    const currIndex = 0;
+    const reviews = await ReviewsAccessor.getAllReviews();
+    let searchTerm = req.query.search.toLowerCase();
+    searchWord = searchTerm;
+    //filters out reviews to only include searchTerm
+    const matchingReviews = reviews.filter((review) =>
+      review.title.toLowerCase().includes(searchTerm)
+    );
+
+    res.render("reviews", { reviews: matchingReviews, searchWord: searchTerm, currIndex: currIndex});
+    //catch error if needed
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error While Searching");
+  }
+});
+
+app.get("/getReviewContent", async (req, res) => {
+  const reviews = await ReviewsAccessor.getAllReviews();
+  const index = req.query.index;
+  const reviewContent = reviews[index] ? reviews[index].review : " ";
+  const reviewTitle = reviews[index] ? reviews[index].title : " ";
+  const reviewRating = reviews[index] ? reviews[index].rating : " ";
+  res.json({
+    reviewContent: reviewContent,
+    reviewTitle: reviewTitle,
+    reviewRating: reviewRating,
+  });
+});
+
+app.post("/delete", async (req, res) => {
     try {
-        const reviews = await ReviewsAccessor.getAllReviews();
-        let searchTerm = req.query.search.toLowerCase(); 
-        searchWord = searchTerm;
-        //filters out reviews to only include searchTerm
-        const matchingReviews = reviews.filter((review) =>
-            review.title.toLowerCase().includes(searchTerm)
-        );
-        
-        res.render("reviews", { reviews: matchingReviews, searchWord: searchTerm});
-        //catch error if needed
-    } catch (error) {
+        const reviewIndex = req.body.review;
+        console.log("reviewIndex to delete: ", reviewIndex);
+        await ReviewsAccessor.deleteReview(reviewIndex);
+        res.status(200).send('Review deleted successfully');
+    }
+    catch (error) {
         console.error(error);
-        res.status(500).send("Error While Searching");
+        res.status(500).send('Error while deleting review');
     }
 });
 
-app.get('/getReviewContent', async (req, res) => {
-    const reviews = await ReviewsAccessor.getAllReviews();
-    const index = req.query.index;
-    const reviewContent = reviews[index] ? reviews[index].review : " ";
-    const jsonPackedContent = JSON.stringify(reviewContent)
-    res.json({ reviewContent: jsonPackedContent });
-  });
 
-
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 app.use("/", router);
 

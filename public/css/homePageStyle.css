@@ -39,26 +39,45 @@ h3 {
   border-radius: 0 10px 10px 0;
   height:100%;
 }
+
+#searchButton:hover {
+  cursor: pointer;
+}
+
 #block {
   margin-top: 1vh;
   background-color: #2e333d;
   width: 90%;
   margin-left:5%;
   margin-right:5%;
-  height: 12vh;
+  height: 10vh;
   border-radius: 10px;
   border: none;
   outline:none;
-  border-style: dotted;
-  border-color: #131313;
 }
+
 
 #block:hover {
-  border-color: #a4a8b4;
+  cursor: pointer;
+  width: 92%;
+  margin-left: 4%;
+  margin-right:4%;
+  background-color: #434750;
 }
 
-#block:focus {
-  background-color:white;
+#titleBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10vh;
+  background-color: #2e333d;
+  width: 90%;
+  margin-left:5%;
+  margin-right:5%;
+  height: 10vh;
+  border-radius: 10px;
+  border: none;
+  outline:none;
 }
 
 input {
@@ -94,7 +113,7 @@ input {
 
 #logo {
   font-family: "Anton", sans-serif;
-  font-size:3.5vw;
+  font-size:3vw;
   color:#a4a8b4; 
   font-weight:bold;
   margin-top: 3vh;
@@ -106,7 +125,6 @@ input {
 #content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 80vw;
   height: 100vh;
@@ -115,8 +133,88 @@ input {
 
 
 #titles {
+  
   height: 100vh;
   width: 20vw;
+}
+
+#titleBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10vh;
+  background-color: #2e333d;
+  width: 90%;
+  margin-left:5%;
+  margin-right:5%;
+  height: 8vh;
+  border-radius: 10px;
+  border: none;
+  outline:none;
+}
+
+#contentBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+  background-color: #2e333d;
+  width: 90%;
+  margin-left:5%;
+  margin-right:5%;
+  border-radius: 10px;
+  border: none;
+  outline:none;
+  padding-bottom:2vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+#reviewRating {
+  padding-left: 0.75vw;
+}
+
+#comment {
+  margin-top: 5vh;
+  margin-left: 5vw;
+  margin-right: 2vw;
+  width:100%;
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: #f3f3f3;
+
+}
+
+#rating {
+  margin-left: 3vw;
+  margin-top:2vh;
+  display:flex;
+  flex-direction: row;
+  font-size:1vw;
+  width:100%;
+  font-weight:400;
+  color:#f3f3f3;
+
+}
+
+#reviewContent {
+  margin-top: 2vh;
+  margin-left: 2vw;
+  width: 95%;
+  margin-right: 2vw;
+  font-size: 1vw;
+  font-weight: 400;
+  color: #f3f3f3;
+
+}
+
+#reviewTitle {
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #f3f3f3;
+  padding-top:2vh;
+  padding-bottom:2vh;
+  margin-left: 1vw;
 }
 
 .roboto-regular {

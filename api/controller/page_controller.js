@@ -6,6 +6,11 @@ class PageController {
 
 
 
+  // static async getReviews(req, res) {
+  //   const reviews = await ReviewsAccessor.getAllReviews();
+  //   res.render("reviews", { reviews });
+  // }
+
   static async getHomePage(req, res) {
     const reviews = await ReviewsAccessor.getAllReviews();
     res.render("reviews", { reviews });

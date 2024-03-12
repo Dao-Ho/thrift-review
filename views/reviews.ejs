@@ -22,7 +22,9 @@
   <body>
     <div id="body">
       <div id="sidebar">
-        <h1 id="logo">Thrift-Us.</h1>
+        <div id="logo">
+          <a href="/search?search=">Thrift-Us.</a>
+        </div>
       </div>
 
       <div id="titles">
@@ -75,8 +77,10 @@
               <button
                 id="block"
                 data-index="<%= i %>"
+                data-id = "<%= reviews[i].id %>"
                 onclick="showReviewContent(this)"
               >
+              
                 <h3><%= reviews[i].title %></h3>
               </button>
             </div>
@@ -84,10 +88,51 @@
           </div>
         </div>
       </div>
-      <div id="content"></div>
+      <div id="content">
+          <div id="titleBox">
+            
+            <div id="reviewTitle">Look Around for Reviews!</div>
+            <form >
+              <button>edit</button>
+            </form>
+            <form method="POST" action="/delete">
+              <input type="hidden" id="updateDelete" name="review" value="<%= currIndex %>"
+              onsubmit="event.preventDefault(); console.log(document.getElementById('updateDelete').value); this.submit();">
+              <button id="deleteButton" type="submit"> delete</button>
+            </form>
+          </div>
+          <div id="contentBox">
+            <h1 id="rating">Rating: 
+              <div id="reviewRating">0</div> 
+              /10</h1> 
+            <h1 id="comment">
+              comments:
+            </h1>
+            <div id = "reviewContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum tempus egestas sed sed. Suspendisse sed nisi lacus sed viverra tellus. Et ultrices neque ornare aenean euismod elementum nisi quis. Suscipit adipiscing bibendum est ultricies integer quis auctor elit sed. Dictum non consectetur a erat nam at. Nisi est sit amet facilisis magna etiam. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Tempor id eu nisl nunc mi ipsum faucibus. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Congue quisque egestas diam in arcu cursus. Mattis molestie a iaculis at erat pellentesque adipiscing commodo elit. Sed velit dignissim sodales ut eu. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Habitasse platea dictumst quisque sagittis purus sit.
+
+              Quis varius quam quisque id diam vel quam. Eu mi bibendum neque egestas. Egestas fringilla phasellus faucibus scelerisque eleifend donec. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Ornare arcu odio ut sem nulla. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Neque convallis a cras semper auctor neque vitae tempus quam. Convallis posuere morbi leo urna molestie. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis. Id faucibus nisl tincidunt eget. Non odio euismod lacinia at quis. Id donec ultrices tincidunt arcu non. Ultricies leo integer malesuada nunc vel risus commodo viverra. Dictum fusce ut placerat orci nulla pellentesque dignissim enim sit.
+              
+              Mauris cursus mattis molestie a iaculis at erat pellentesque. Felis eget nunc lobortis mattis. Egestas congue quisque egestas diam in. Vel pharetra vel turpis nunc eget lorem dolor. Turpis massa tincidunt dui ut ornare lectus sit amet. Ultricies mi quis hendrerit dolor magna eget. Ultrices in iaculis nunc sed augue lacus viverra vitae. Et molestie ac feugiat sed lectus. Netus et malesuada fames ac turpis. Netus et malesuada fames ac. Non nisi est sit amet facilisis. Eu scelerisque felis imperdiet proin.
+              
+              At tempor commodo ullamcorper a lacus vestibulum sed arcu. Diam vulputate ut pharetra sit amet. Pharetra magna ac placerat vestibulum lectus mauris ultrices eros in. Egestas quis ipsum suspendisse ultrices gravida. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Lorem dolor sed viverra ipsum nunc aliquet bibendum enim. Lacus viverra vitae congue eu consequat ac. Et malesuada fames ac turpis egestas maecenas pharetra. Eu mi bibendum neque egestas congue quisque egestas diam. Consequat semper viverra nam libero justo laoreet sit amet. Aliquet porttitor lacus luctus accumsan tortor posuere. Amet tellus cras adipiscing enim.
+              
+              Diam vulputate ut pharetra sit. Venenatis lectus magna fringilla urna porttitor. Ac placerat vestibulum lectus mauris ultrices eros. Mattis pellentesque id nibh tortor id aliquet lectus proin. Magna ac placerat vestibulum lectus mauris ultrices. Quis vel eros donec ac. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Imperdiet nulla malesuada pellentesque elit eget gravida cum. Id aliquet risus feugiat in ante. Vitae justo eget magna fermentum. Velit scelerisque in dictum non consectetur a erat.
+              
+              Id faucibus nisl tincidunt eget. Iaculis eu non diam phasellus vestibulum lorem sed risus ultricies. Enim nunc faucibus a pellentesque sit amet porttitor eget. Montes nascetur ridiculus mus mauris vitae ultricies. Ut placerat orci nulla pellentesque dignissim enim sit. Nibh tortor id aliquet lectus proin nibh nisl. Amet mattis vulputate enim nulla aliquet porttitor lacus. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Risus in hendrerit gravida rutrum quisque non tellus orci ac. Penatibus et magnis dis parturient montes nascetur ridiculus mus. Diam sollicitudin tempor id eu nisl nunc mi ipsum. Consequat nisl vel pretium lectus quam id.
+              
+              Ullamcorper a lacus vestibulum sed arcu non odio. Dui sapien eget mi proin sed libero enim. Tortor at risus viverra adipiscing at in. Sapien pellentesque habitant morbi tristique senectus et netus et. Ullamcorper sit amet risus nullam eget. Turpis egestas integer eget aliquet nibh praesent tristique. Elit sed vulputate mi sit amet mauris commodo quis imperdiet. Euismod quis viverra nibh cras pulvinar mattis. Non quam lacus suspendisse faucibus. Eget est lorem ipsum dolor sit amet. Vitae nunc sed velit dignissim sodales ut eu sem integer.
+              
+              Accumsan lacus vel facilisis volutpat est velit egestas dui. Sit amet commodo nulla facilisi. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Elementum integer enim neque volutpat. Id diam maecenas ultricies mi eget mauris pharetra. Duis tristique sollicitudin nibh sit. Nullam non nisi est sit amet. Et sollicitudin ac orci phasellus. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Viverra vitae congue eu consequat ac felis donec et. Sed felis eget velit aliquet. Massa placerat duis ultricies lacus sed turpis tincidunt id. Mus mauris vitae ultricies leo integer. Nibh nisl condimentum id venenatis a condimentum vitae sapien pellentesque.
+              
+              Volutpat sed cras ornare arcu. Sit amet mattis vulputate enim. Enim diam vulputate ut pharetra sit amet aliquam id diam. Ornare arcu dui vivamus arcu felis bibendum. Sit amet cursus sit amet dictum sit amet justo. Risus in hendrerit gravida rutrum quisque non tellus orci ac. Tellus cras adipiscing enim eu turpis egestas pretium. Sollicitudin tempor id eu nisl nunc. Molestie a iaculis at erat pellentesque adipiscing commodo elit at. Dictumst quisque sagittis purus sit amet volutpat consequat.
+              
+              Semper risus in hendrerit gravida rutrum quisque non tellus orci. Nunc sed augue lacus viverra vitae congue eu. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Pretium viverra suspendisse potenti nullam ac. Ornare arcu odio ut sem. Ut tellus elementum sagittis vitae et leo duis ut. Urna condimentum mattis pellentesque id nibh tortor id aliquet. Mattis rhoncus urna neque viverra. Tristique senectus et netus et malesuada fames ac turpis. Vestibulum mattis ullamcorper velit sed ullamcorper. Gravida cum sociis natoque penatibus et magnis dis parturient montes. Pharetra magna ac placerat vestibulum lectus mauris ultrices eros. Nibh venenatis cras sed felis eget velit. Sit amet mauris commodo quis imperdiet massa tincidunt nunc. Risus ultricies tristique nulla aliquet enim tortor. Donec ac odio tempor orci dapibus ultrices in. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque.</div>
+          </div>
+      </div>
     </div>
     <script>
       console.log("Script loaded successfully.");
+      
 
       document.addEventListener("DOMContentLoaded", function () {
         const buttons = document.querySelectorAll("#titlescroll button");
@@ -98,22 +143,39 @@
         });
       });
 
+      var currIndex = 0;
       //use index from button, since index is client side,
       // we fetch for the review content from the server using the index
       function showReviewContent(button) {
         const index = button.dataset.index;
+        currIndex = button.dataset.id;
+        updateReviewIndex(currIndex);
+        console.log("currIndex: ", currIndex);
         console.log("index: ", index);
 
         fetch(`/getReviewContent?index=${index}`)
           .then((response) => response.json())
           .then((data) => {
             const reviewContent = data.reviewContent ? data.reviewContent : " "; // Default value if review content is not available
+            const reviewTitle = data.reviewTitle ? data.reviewTitle : " "; // Default value if review title is not available
+            const reviewRating = data.reviewRating ? data.reviewRating : " "; // Default value if review rating is not available
             console.log("Button clicked. Review content:", reviewContent);
 
             // Update the content div with the review content
-            document.getElementById("content").innerHTML  = reviewContent;
+            document.getElementById("reviewContent").innerHTML  = reviewContent;
+            //update title div with the title 
+            document.getElementById("reviewTitle").innerHTML  = reviewTitle;
+            //update title div with the rating 
+            document.getElementById("reviewRating").innerHTML  = reviewRating;
           });
       }
+      
+      function updateReviewIndex(newIndex) {
+        document.getElementById('updateDelete').value = newIndex;
+        console.log("Updated review index to: ", newIndex);
+      }   
+        
+
     </script>
   </body>
 </html>

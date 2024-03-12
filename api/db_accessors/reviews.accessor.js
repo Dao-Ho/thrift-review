@@ -14,6 +14,12 @@ export default class ReviewsAccessor {
       const allReviews = await Review.find({});
       return allReviews;
     }
+
+    static async deleteReview(reviewIndex) {
+      await Connection.open("home");
+      const deletedReview = await Review.findOneAndDelete({ id: reviewIndex });
+      return deletedReview;
+    }
   
     static async postReviews(reviewDoc) {
       Review.create(reviewDoc);
