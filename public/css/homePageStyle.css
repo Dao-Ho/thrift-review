@@ -20,7 +20,8 @@ h3 {
   top: 0;
   left: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   border-radius: 0 1vw 1vw 0;
 }
 
@@ -37,11 +38,29 @@ h3 {
 #searchButton {
   width:4vw;
   border-radius: 0 10px 10px 0;
+  font-weight: bold;
+  border: none;
   height:100%;
+  color:white;
+  background: linear-gradient(to right, #a88e4e , #6b523b);
 }
 
 #searchButton:hover {
   cursor: pointer;
+}
+
+#editBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  width: 90%;
+  margin-left:5%;
+  margin-right:5%;
+  border-radius: 10px;
+  border: none;
+  outline:none;
+  padding-bottom:2vh;
+  overflow-y:auto;
 }
 
 #block {
@@ -56,7 +75,85 @@ h3 {
   outline:none;
 }
 
+#titleLabel {
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #f3f3f3;
+  padding-top:2vh;
+  margin-left: 1vw;
+  padding-bottom: 0;
+}
 
+#titleInput{
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: #f3f3f3;
+  margin-top: 2vh;
+  margin-left: 1vw;
+  background-color: #2e333d;
+  width:98%;
+  overflow-x: hidden;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-radius: 10px 10px 10px 10px;
+  border: none;
+  outline:none;
+  color: white;
+}
+
+#ratingLabel {
+  padding-top:2vh;
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #f3f3f3;
+  padding-bottom:2vh;
+  margin-left: 1vw;
+  
+}
+
+#ratingInput {
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: #f3f3f3;
+  margin-left: 1vw;
+  background-color: #2e333d;
+  width:5%;
+  overflow-x: hidden;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-radius: 10px 10px 10px 10px;
+  border: none;
+  outline:none;
+  color: white;
+}
+
+#reviewLabel {
+  margin-top:0vh;
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #f3f3f3;
+  padding-top:2vh;
+  padding-bottom:2vh;
+  margin-left: 1vw;
+}
+
+#reviewInput {
+  margin-top: 0vh;
+  margin-left: 1vw;
+  width: 98%;
+  font-size: 1vw;
+  font-weight: 400;
+  color: #f3f3f3;
+  overflow-y: scroll;
+  contain: content;
+  background-color: #2e333d;
+  border-radius: 10px 10px 10px 10px;
+  border: none;
+  outline:none;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  color: white;
+}
 #block:hover {
   cursor: pointer;
   width: 92%;
@@ -207,7 +304,20 @@ input {
   color: #f3f3f3;
 
 }
+#submitButton {
+  margin-top: 4vh;
+  margin-left: 1vw;
+  width: 10vw;
+  height: 5vh;
+  border-radius: 10px;
+  background: linear-gradient(to right, #a88e4e , #6b523b);
+  border: none;
+  outline:none;
+  color: white;
+  font-size: 1vw;
+  font-weight: bold;
 
+}
 #reviewTitle {
   font-size: 1.5vw;
   font-weight: bold;
@@ -217,6 +327,23 @@ input {
   margin-left: 1vw;
 }
 
+#postButton {
+  margin-top: 2vh;
+  width: 10vw;
+  height: 5vh;
+  border-radius: 10px;
+  background: linear-gradient(to right, #a88e4e , #6b523b);
+  border: none;
+  outline:none;
+  color: white;
+  font-size: 1vw;
+  font-weight: bold;
+}
+
+#postButton:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, #b5985b , #726343);
+}
 .roboto-regular {
   font-family: "Roboto", sans-serif;
   font-weight: 400;

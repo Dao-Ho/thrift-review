@@ -30,6 +30,7 @@ app.get("/search", async (req, res) => {
   }
 });
 
+
 app.get("/getReviewContent", async (req, res) => {
   const reviews = await ReviewsAccessor.getAllReviews();
   const index = req.query.index;
@@ -48,7 +49,7 @@ app.post("/delete", async (req, res) => {
         const reviewIndex = req.body.review;
         console.log("reviewIndex to delete: ", reviewIndex);
         await ReviewsAccessor.deleteReview(reviewIndex);
-        res.status(200).send('Review deleted successfully');
+        res.redirect("/search?search=");
     }
     catch (error) {
         console.error(error);

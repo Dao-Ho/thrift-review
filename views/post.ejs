@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="../public/css/homePageStyle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/homePageStyle.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="body">
+      <div id="sidebar">
+        <div id="logo">
+          <a href="/search?search=">Thrift-Us.</a>
+        </div>
+        <div>
+          <a href="/post">
+          <button id="postButton">
+            post review
+          </button>
+          </div>
+      </a>
+      </div>
+      <div id="editBox">
+        <form method="POST">
+            <div style="display: flex;">
+            <label id="titleLabel"for="title">title</label>
+            </div>
+            <div style="display: flex;">
+            <input id="titleInput" type="text" name="title" id="title" />
+            </div>
+            <div style="display: flex;">
+            <label id="ratingLabel" for="rating">rating</label>
+            </div>
+            <div style="display: flex;">
+            <input id="ratingInput" type="Number" name="rating" id="rating" />
+            </div>
+            <div style="display: flex;">
+            <label id="reviewLabel" for="review">review</label>
+            </div>  
+            <div style="display: flex;">
+            <input id="reviewInput" type="text" name="review" id="review" />
+            </div>
+            <div style="display: flex;">
+            <input id="submitButton" type="submit" value="Submit" />
+            </div>
+          </form>
+      </div>
+    </div>
+    <script>
+      console.log("Script loaded successfully.");
+      
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll("#titlescroll button");
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            showReviewContent(this);
+          });
+        });
+      });
+
+      var currIndex = 0;
+      //use index from button, since index is client side,
+      // we fetch for the review content from the server using the index
+      function showReviewContent(button) {
+        const index = button.dataset.index;
+        currIndex = button.dataset.id;
+        updateReviewIndex(currIndex);
+        console.log("currIndex: ", currIndex);
+        console.log("index: ", index);
+
+        fetch(`/getReviewContent?index=${index}`)
+          .then((response) => response.json())
+          .then((data) => {
+            const reviewContent = data.reviewContent ? data.reviewContent : " "; // Default value if review content is not available
+            const reviewTitle = data.reviewTitle ? data.reviewTitle : " "; // Default value if review title is not available
+            const reviewRating = data.reviewRating ? data.reviewRating : " "; // Default value if review rating is not available
+            console.log("Button clicked. Review content:", reviewContent);
+
+            // Update the content div with the review content
+            document.getElementById("reviewContent").innerHTML  = reviewContent;
+            //update title div with the title 
+            document.getElementById("reviewTitle").innerHTML  = reviewTitle;
+            //update title div with the rating 
+            document.getElementById("reviewRating").innerHTML  = reviewRating;
+          });
+      }
+      
+      function updateReviewIndex(newIndex) {
+        document.getElementById('updateDelete').value = newIndex;
+        console.log("Updated review index to: ", newIndex);
+      }   
+        
+
+    </script>
+  </body>
+</html>
